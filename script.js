@@ -1,10 +1,5 @@
-const getSumBtn = document.createElement("button");
-getSumBtn.append("Get Total Price");
-document.body.appendChild(getSumBtn);
-
-const getSum = () => {
-//Add your code here
-	 const prices = document.querySelectorAll(".price");
+function getSum() {
+  const prices = document.querySelectorAll(".price");
   let total = 0;
 
   prices.forEach(p => {
@@ -12,8 +7,7 @@ const getSum = () => {
   });
 
   const ansDiv = document.getElementById("ans");
-  ansDiv.textContent = total;  // put the total here
-};
+  ansDiv.textContent = total;
+}
 
-getSumBtn.addEventListener("click", getSum);
-
+document.getElementById("sumBtn").addEventListener("click", getSum);
