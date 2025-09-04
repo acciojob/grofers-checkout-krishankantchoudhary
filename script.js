@@ -4,28 +4,15 @@ document.body.appendChild(getSumBtn);
 
 const getSum = () => {
 //Add your code here
-	 const priceElements = document.querySelectorAll(".prices");
+	 const prices = document.querySelectorAll(".price");
+  let total = 0;
 
-    // Step 2: Convert to numbers and sum
-    let total = 0;
-    priceElements.forEach(price => {
-      total += parseFloat(price.textContent) || 0; // fallback in case of invalid value
-    });
+  prices.forEach(p => {
+    total += parseFloat(p.textContent) || 0;
+  });
 
-    // Step 3: Create a new row for total
-    const table = document.getElementById("groceryTable");
-    const totalRow = document.createElement("tr");
-    totalRow.classList.add("total-row");
-
-    // single cell spanning across 2 columns
-    const totalCell = document.createElement("td");
-    totalCell.colSpan = 2;
-    totalCell.textContent = `Total: ${total}`;
-
-    // Step 4: Append the new row to table
-    totalRow.appendChild(totalCell);
-    table.appendChild(totalRow);
-  
+  const ansDiv = document.getElementById("ans");
+  ansDiv.textContent = total;  // put the total here
 };
 
 getSumBtn.addEventListener("click", getSum);
